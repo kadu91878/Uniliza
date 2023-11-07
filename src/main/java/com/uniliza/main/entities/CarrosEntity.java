@@ -28,5 +28,6 @@ public class CarrosEntity {
     @ManyToOne
     @JoinColumn(name = "categoriaId")
     private CategoriaEntity categoria;
+    private Boolean disponibilidade;
 
 }

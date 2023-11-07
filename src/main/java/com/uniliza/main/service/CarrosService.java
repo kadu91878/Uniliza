@@ -49,6 +49,7 @@ public class CarrosService {
         existingCarro.setMarca(updateCarro.getMarca());
         existingCarro.setPlaca(updateCarro.getPlaca());
         existingCarro.setAno(updateCarro.getAno());
+        existingCarro.setDisponibilidade(updateCarro.getDisponibilidade());
         if (updateCarro.getCategoria() != null) {
             existingCarro.setCategoria(categoriaRepository.findById(updateCarro.getCategoria().getCategoriaId()).orElse(null));
         }
