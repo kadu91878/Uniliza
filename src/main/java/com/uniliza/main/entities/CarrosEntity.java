@@ -26,7 +26,7 @@ public class CarrosEntity {
     private String placa;
     private Integer ano;
     @ManyToOne
-    @JoinColumn(name = "categoriaId")
+    @JoinColumn(name = "categoria")
     private CategoriaEntity categoriaId;
     private Double valor;
 

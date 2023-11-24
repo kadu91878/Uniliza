@@ -1,9 +1,13 @@
 package com.uniliza.main.service;
 
 import java.sql.Date;
+import java.util.List;
 
+import org.hibernate.mapping.Any;
 import org.springframework.stereotype.Service;
 
+import com.uniliza.main.dto.ReservasDTO;
+import com.uniliza.main.entities.ReservasEntity;
 import com.uniliza.main.repository.ReservasRepository;
 
 @Service
@@ -15,11 +19,8 @@ public class ReservaService {
         this.reservasRepository = reservasRepository;
     }
 
-    public boolean verificarDisponibilidade(Long idCarro, Date dataInicio, Date dataFim) {
-        if(reservasRepository.verificarDisponibilidade(idCarro, dataInicio, dataFim) == 0) {
-            return true;
-        }
-        return false;
+    public List<ReservasDTO> verificarDisponibilidade(Long idCarro, Date dataInicio, Date dataFim) {
+        return reservasRepository.verificarDisponibilidade(dataInicio, dataFim);
     }
 
    
