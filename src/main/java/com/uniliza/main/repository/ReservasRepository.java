@@ -10,11 +10,11 @@ import com.uniliza.main.entities.ReservasEntity;
 
 public interface ReservasRepository extends JpaRepository<ReservasEntity, Long> {
 
-    @Query("SELECT COUNT(r.carro.id) FROM Reserva r " +
-           "WHERE r.carro.id = :idCarro " +
-           "AND (:dataInicio BETWEEN r.dataInicio AND r.dataFim " +
-           "OR :dataFim BETWEEN r.dataInicio AND r.dataFim " +
-           "OR r.dataInicio BETWEEN :dataInicio AND :dataFim)")
+    @Query( value = "SELECT COUNT(r.car_id) FROM uniliza.reservas r " + 
+    "WHERE r.car_id = :idCarro " + 
+    "AND (:dataInicio BETWEEN r.reservation_date  AND r.due_date " + 
+    "OR :dataFim BETWEEN r.reservation_date  AND r.due_date " + 
+    "OR r.reservation_date BETWEEN :dataInicio AND :dataFim)", nativeQuery = true)
     int verificarDisponibilidade(@Param("idCarro") Long idCarro,
                                  @Param("dataInicio") Date dataInicio,
                                  @Param("dataFim") Date dataFim);

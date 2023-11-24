@@ -27,12 +27,12 @@ public class CarrosController {
     }
     @PostMapping("/")
     public ResponseEntity<CarrosEntity> createCarro(@RequestBody CarrosEntity carro) throws Exception{
-        if (carro.getCategoria() == null) {
+        if (carro.getCategoriaId() == null) {
             throw new IllegalArgumentException("categoria não pode ser nulo.");
         }
-        Long categoriaId = carro.getCategoria().getCategoriaId();
+        Long categoriaId = carro.getCategoriaId().getCategoriaId();
         if (!carrosService.isCategoriaExists(categoriaId)) {
-            throw new IllegalArgumentException("Categoria with ID " + carro.getCategoria() + " does not exist.");
+            throw new IllegalArgumentException("Categoria with ID " + carro.getCategoriaId() + " does not exist.");
         }
         CarrosEntity createCarro = carrosService.createCarro(carro);
         return ResponseEntity.status(HttpStatus.CREATED).body(createCarro);
@@ -56,12 +56,12 @@ public class CarrosController {
 
     @PutMapping("/{id}")
     public ResponseEntity<CarrosEntity> updateCarro(@PathVariable Long id, @RequestBody CarrosEntity updateCarro) throws Exception{
-        if (updateCarro.getCategoria() == null) {
+        if (updateCarro.getCategoriaId() == null) {
             throw new IllegalArgumentException("categoria não pode ser nulo.");
         }
-        Long categoriaId = updateCarro.getCategoria().getCategoriaId();
+        Long categoriaId = updateCarro.getCategoriaId().getCategoriaId();
         if (!carrosService.isCategoriaExists(categoriaId)) {
-            throw new IllegalArgumentException("Categoria with ID " + updateCarro.getCategoria() + " does not exist.");
+            throw new IllegalArgumentException("Categoria with ID " + updateCarro.getCategoriaId() + " does not exist.");
         }
         CarrosEntity updated = carrosService.updateCarro(id, updateCarro);
         if(updated!=null){

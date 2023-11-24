@@ -14,7 +14,7 @@ import lombok.EqualsAndHashCode;
 
 @Data
 @Entity(name = "reservas")
-@Table(name = "reservas")
+@Table(name = "reservas", schema = "uniliza")
 @EqualsAndHashCode(of = "id")
 public class ReservasEntity {
     @Id
@@ -23,7 +23,7 @@ public class ReservasEntity {
     private Date reservationDate;
     private Date dueDate;
     @ManyToOne
-    @JoinColumn(name = "id")
-    private CarrosEntity car_id;
+    @JoinColumn(name = "carros")
+    private CarrosEntity carId;
 
 }

@@ -25,8 +25,8 @@ public class CarrosService {
             throw new Exception("Carro já cadastrado");
         }
         // Set the associated CategoriaEntity by fetching it from the database
-        if (carro.getCategoria() != null) {
-            carro.setCategoria(categoriaRepository.findById(carro.getCategoria().getCategoriaId()).orElse(null));
+        if (carro.getCategoriaId() != null) {
+            carro.setCategoriaId(categoriaRepository.findById(carro.getCategoriaId().getCategoriaId()).orElse(null));
         }
         return carrosRepository.save(carro);
     }
@@ -50,8 +50,8 @@ public class CarrosService {
         existingCarro.setPlaca(updateCarro.getPlaca());
         existingCarro.setAno(updateCarro.getAno());
         existingCarro.setValor(updateCarro.getValor());
-        if (updateCarro.getCategoria() != null) {
-            existingCarro.setCategoria(categoriaRepository.findById(updateCarro.getCategoria().getCategoriaId()).orElse(null));
+        if (updateCarro.getCategoriaId() != null) {
+            existingCarro.setCategoriaId(categoriaRepository.findById(updateCarro.getCategoriaId().getCategoriaId()).orElse(null));
         }
         return carrosRepository.save(existingCarro);
     }

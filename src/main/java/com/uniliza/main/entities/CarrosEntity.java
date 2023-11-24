@@ -13,7 +13,7 @@ import lombok.EqualsAndHashCode;
 
 @Entity(name = "carros")
 @Data
-@Table(name = "carros")
+@Table(name = "carros", schema = "uniliza")
 @EqualsAndHashCode(of = "id")
 public class CarrosEntity {
 
@@ -27,7 +27,7 @@ public class CarrosEntity {
     private Integer ano;
     @ManyToOne
     @JoinColumn(name = "categoriaId")
-    private CategoriaEntity categoria;
+    private CategoriaEntity categoriaId;
     private Double valor;
 
 }
