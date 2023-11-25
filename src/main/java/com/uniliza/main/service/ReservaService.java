@@ -19,7 +19,7 @@ public class ReservaService {
         this.reservasRepository = reservasRepository;
     }
 
-    public List<ReservasDTO> verificarDisponibilidade(Long idCarro, Date dataInicio, Date dataFim) {
+    public List<ReservasDTO> verificarDisponibilidade(Date dataInicio, Date dataFim) {
         return reservasRepository.verificarDisponibilidade(dataInicio, dataFim);
     }
 

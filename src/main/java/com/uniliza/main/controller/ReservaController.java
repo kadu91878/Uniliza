@@ -25,10 +25,9 @@ public class ReservaController {
 
     @GetMapping("/verificar-disponibilidade")
     public ResponseEntity<List<ReservasDTO>> verificarDisponibilidade(
-            @RequestParam Long idCarro,
             @RequestParam Date dataInicio,
             @RequestParam Date dataFim) {
-        List<ReservasDTO> reservas = reservaService.verificarDisponibilidade(idCarro, dataInicio, dataFim);
+        List<ReservasDTO> reservas = reservaService.verificarDisponibilidade(dataInicio, dataFim);
         return ResponseEntity.ok(reservas);
     }
 }
